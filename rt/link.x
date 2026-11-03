@@ -7,6 +7,7 @@ MEMORY
 ENTRY(Reset);
 
 EXTERN(RESET_VECTOR);
+EXTERN(EXCEPTIONS);
 
 SECTIONS 
 {
@@ -15,6 +16,8 @@ SECTIONS
     LONG(ORIGIN(RAM) + LENGTH(RAM));
 
     KEEP(*(.vector_table.reset_vector));
+
+    KEEP(*(.vector_table.exceptions));
   } > FLASH
 
   .text :
